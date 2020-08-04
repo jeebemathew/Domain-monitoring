@@ -30,11 +30,13 @@ urls = [
 ]
 
 for url in urls:
-    response = requests.get(url)
+    try:
+     response = requests.get(url)
 
-    if response.status_code == requests.codes.OK:
-        print('UP', url,response.status_code)
+     if response.status_code == requests.codes.OK:
+        print('{:40} [ {} ] : Up'. format( url,response.status_code))
     
-    else:
-        print('DOWN', url, response.status_code)
-
+     else:
+        print('{:40} [ {} ] : DOWN' .format( url, response.status_code))
+    except:
+       print('{:40} [ {} ] : Error' .format(url,'000'))
