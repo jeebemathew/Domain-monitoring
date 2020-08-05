@@ -46,7 +46,7 @@ for url in urls:
        print('{:40} [ {} ] : Error' .format(url,'000'))
        down[url] = ' Error while accessing the domain'
 
-#print(down)
+
 
 
 file = open('myfile.txt','w')
