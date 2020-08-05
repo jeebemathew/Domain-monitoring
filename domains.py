@@ -30,7 +30,8 @@ urls = [
   'https://www.makeuseof.com'
 ]
 
-down = {}
+
+file= open('myfile.txt','w')
 
 for url in urls:
     try:
@@ -41,20 +42,17 @@ for url in urls:
     
      else:
         print('{:40} [ {} ] : DOWN' .format( url, response.status_code))
-        down[url] = ' The domain is offline'
+
+        file.write(url + ' is offline \n')
     except:
        print('{:40} [ {} ] : Error' .format(url,'000'))
-       down[url] = ' Error while accessing the domain'
 
+       file.write(url + ' is getting an error \n')
 
-
-
-file = open('myfile.txt','w')
-file.write(str(down))
 file.close()
 
 
-username = '****@gmail.com'
+username = 'je****@gmail.com'
 password = input(' Enter your  email account password : ')
 
 
@@ -62,7 +60,7 @@ report = email.message.EmailMessage()
 
 report['From'] = username
 report['Subject'] = 'Scanning Report attached'
-report['To'] = [ 'jeebe@gmail.com','jeebe@hotmail@com' ]
+report['To'] = [ 'jee****@gmail.com','je****@hotmail@com' ]
 
 with open('myfile.txt','r') as fh:
   data = fh.read()
